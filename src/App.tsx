@@ -26,7 +26,7 @@ export default function Page() {
   useEffect(() => {
     if (redirect) {
       // Replace the URL below with your desired destination
-      window.location.href = "http://10.145.24.58:34634";
+      window.location.href = "https://papdichat.netlify.app/";
     }
   }, [redirect]);
 
