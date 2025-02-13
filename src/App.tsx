@@ -1,14 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
   const [yesPressed, setYesPressed] = useState(false);
+  const [redirect, setRedirect] = useState(false);
   const yesButtonSize = noCount * 20 + 16;
 
   const handleNoClick = () => {
     setNoCount(noCount + 1);
   };
+
+  useEffect(() => {
+    if (yesPressed) {
+      // Set a timer to trigger redirect after 3 seconds
+      const timer = setTimeout(() => {
+        setRedirect(true);
+      }, 3000);
+
+      // Cleanup timer
+      return () => clearTimeout(timer);
+    }
+  }, [yesPressed]);
+
+  useEffect(() => {
+    if (redirect) {
+      // Replace the URL below with your desired destination
+      window.location.href = "http://10.145.24.58:34634";
+    }
+  }, [redirect]);
 
   const getNoButtonText = () => {
     const phrases = [
@@ -39,7 +59,14 @@ export default function Page() {
         {yesPressed ? (
           <>
             <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
-            <div className="text-container">Ok yay!!!</div>
+            <div className="text-container">
+              Ok yay!!!
+              {redirect ? (
+                <div>Redirecting...</div>
+              ) : (
+                <div>Get ready for something special...</div>
+              )}
+            </div>
           </>
         ) : (
           <>
