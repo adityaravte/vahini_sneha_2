@@ -26,7 +26,7 @@ export default function Page() {
   useEffect(() => {
     if (redirect) {
       // Replace the URL below with your desired destination
-      window.location.href = "https://bayko.netlify.app/";
+      window.location.href = "https://for-u-sneha-baidya.netlify.app/";
     }
   }, [redirect]);
 
