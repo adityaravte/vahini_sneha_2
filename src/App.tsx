@@ -26,7 +26,7 @@ export default function Page() {
   useEffect(() => {
     if (redirect) {
       // Replace the URL below with your desired destination
-      window.location.href = "https://papdichat.netlify.app/";
+      window.location.href = "https://bayko.netlify.app/";
     }
   }, [redirect]);
 
